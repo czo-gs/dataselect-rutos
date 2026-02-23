@@ -2,9 +2,43 @@
 
 Apache-2.0 License (http://www.apache.org/licenses/LICENSE-2.0)
 
-Copyright (C) 2025 Geoscope Team <geoscope-admin@ipgp.fr>
+Copyright (C) 2023 Chad Trabant, EarthScope Data Services
 
-# dataselect - Selection and sorting for data in miniSEED format.
+Copyright (C) 2025, 2026 Geoscope Team <geoscope-admin@ipgp.fr>
+
+## Building
+
+get the sdk, untar it, then cd to it
+
+    ./scripts/feeds update -a
+    make tools/install
+    make toolchain/install
+
+    cd feeds/packages/utils
+    git clone https://github.com/czo-gs/dataselect-rutx
+    cd ../../..
+    ./scripts/feeds update -a
+    ./scripts/feeds install dataselect-rutx
+    make menuconfig
+
+Then in `Utilities  --->` select dataselect-rutx `<*> dataselect-rutx`
+
+    make package/dataselect-rutx/compile
+    make package/index
+
+opkg .ipk is a file like `bin/packages/arm_cortex-a7_neon-vfpv4/packages/dataselect-rutx_4.1.2-1_arm_cortex-a7_neon-vfpv4.ipk`
+
+## Install by Releases
+
+You can get the release here: https://github.com/czo-gs/dataselect-rutx/releases
+
+Then copy this file to your router and install it:
+
+    opkg install /tmp/dataselect-rutx_4.1.2-1_arm_cortex-a7_neon-vfpv4.ipk
+
+## Original README
+
+### dataselect - Selection and sorting for data in miniSEED format.
 
 This program is a general use tool for extracting a subset and sorting data in
 miniSEED format.
@@ -12,11 +46,11 @@ miniSEED format.
 For usage infromation see the [dataselect manual](doc/dataselect.md) in the
 'doc' directory.
 
-## Downloading
+### Downloading
 
 The [releases](https://github.com/earthscope/dataselect/releases) area contains release versions.
 
-## Building and installing
+### Building and installing
 
 Building the program requires a C compiler (C99-compatible) and the GNU make program.
 
@@ -27,7 +61,7 @@ After successfully compiling the program, the `dataselect` binary may be copied 
 any desired location, normally in your PATH.  The man page, in the `doc` directory, may
 be copied to somewhere in your MANPATH for use with the `man` program.
 
-## License
+### License
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
