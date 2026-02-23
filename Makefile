@@ -2,19 +2,20 @@
 # Author: Olivier Sirol <czo@free.fr>
 # License: GPL-2.0 (http://www.gnu.org/copyleft)
 # File Created: 17 September 2025
-# Last Modified: Monday 22 September 2025, 10:36
-# Edit Time: 0:39:38
+# Last Modified: Monday 23 February 2026, 14:02
+# Edit Time: 0:40:20
 # Description:
 #
 #       OpenWRT Makefile for dataselect
 #
-# Copyright: (C) 2025 Olivier Sirol <czo@free.fr>
+# Copyright: (C) 2025, 2026 Olivier Sirol <czo@free.fr>
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dataselect-rutx
 PKG_VERSION:=4.1.2
-PKG_RELEASE:=1
+# Add _sdk-X.XX.X to PKG_RELEASE only if it's detected in the pwd path
+PKG_RELEASE:=1$(shell pwd | grep -oP -- '-sdk-[0-9]+\.[0-9]+\.[0-9]+' | sed 's/-sdk-/_sdk-/')
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL_DS:=https://github.com/EarthScope/dataselect.git
