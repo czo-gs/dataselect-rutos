@@ -1,4 +1,4 @@
-# dataselect miniSEED for OpenWRT and RUTX
+# dataselect miniSEED for OpenWRT and RutOS
 
 Apache-2.0 License (http://www.apache.org/licenses/LICENSE-2.0)
 
@@ -15,26 +15,26 @@ get the sdk, untar it, then cd to it
     make toolchain/install
 
     cd feeds/packages/utils
-    git clone https://github.com/czo-gs/dataselect-rutx
+    git clone https://github.com/czo-gs/dataselect-rutos
     cd ../../..
     ./scripts/feeds update -a
-    ./scripts/feeds install dataselect-rutx
+    ./scripts/feeds install dataselect-rutos
     make menuconfig
 
-Then in `Utilities  --->` select dataselect-rutx `<*> dataselect-rutx`
+Then in `Utilities  --->` select dataselect-rutos `<*> dataselect-rutos`
 
-    make package/dataselect-rutx/compile
+    make package/dataselect-rutos/compile
     make package/index
 
-opkg .ipk is a file like `bin/packages/arm_cortex-a7_neon-vfpv4/packages/dataselect-rutx_4.1.2-1_arm_cortex-a7_neon-vfpv4.ipk`
+opkg .ipk is a file like `bin/packages/arm_cortex-a7_neon-vfpv4/packages/dataselect-rutos_4.1.2-1_arm_cortex-a7_neon-vfpv4.ipk`
 
 ## Install by Releases
 
-You can get the release here: https://github.com/czo-gs/dataselect-rutx/releases
+You can get the release here: https://github.com/czo-gs/dataselect-rutos/releases
 
 Then copy this file to your router and install it:
 
-    opkg install /tmp/dataselect-rutx_4.1.2-1_arm_cortex-a7_neon-vfpv4.ipk
+    opkg install /tmp/dataselect-rutos_4.1.2-1_arm_cortex-a7_neon-vfpv4.ipk
 
 ## Original README
 

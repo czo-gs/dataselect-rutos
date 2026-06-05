@@ -2,8 +2,8 @@
 # Author: Olivier Sirol <czo@free.fr>
 # License: GPL-2.0 (http://www.gnu.org/copyleft)
 # File Created: 17 September 2025
-# Last Modified: Monday 23 February 2026, 14:02
-# Edit Time: 0:40:20
+# Last Modified: Friday 05 June 2026, 13:31
+# Edit Time: 0:41:14
 # Description:
 #
 #       OpenWRT Makefile for dataselect
@@ -12,7 +12,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=dataselect-rutx
+PKG_NAME:=dataselect-rutos
 PKG_VERSION:=4.1.2
 # Add _sdk-X.XX.X to PKG_RELEASE only if it's detected in the pwd path
 PKG_RELEASE:=1$(shell pwd | grep -oP -- '-sdk-[0-9]+\.[0-9]+\.[0-9]+' | sed 's/-sdk-/_sdk-/')
@@ -27,7 +27,7 @@ PKG_MAINTAINER:=Olivier SIROL <czo@ipgp.fr>
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/dataselect-rutx
+define Package/dataselect-rutos
 	SECTION:=utils
 	CATEGORY:=Utilities
 	TITLE:=dataselect - Selection and sorting for data in miniSEED format
@@ -51,13 +51,13 @@ define Build/Compile
 	$(MAKE) -C $(PKG_BUILD_DIR)/dataselect CC="$(TARGET_CC)" CFLAGS="$(TARGET_CFLAGS)" LDFLAGS="$(TARGET_LDFLAGS)"
 endef
 
-define Package/dataselect-rutx/description
+define Package/dataselect-rutos/description
 	This program is a general use tool for extracting a subset and sorting data in miniSEED format.
 endef
 
-define Package/dataselect-rutx/install
+define Package/dataselect-rutos/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/dataselect/dataselect $(1)/usr/bin/
 endef
 
-$(eval $(call BuildPackage,dataselect-rutx))
+$(eval $(call BuildPackage,dataselect-rutos))
